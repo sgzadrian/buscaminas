@@ -1,0 +1,22 @@
+<div style="padding-top: 20px; padding-left: 20px;">
+  Puntaje: <b>{{score}}</b>
+</div>
+<div class="content">
+  <div class="banner {{status == 1 ? 'win' : 'lose'}}" *ngIf="status != 0">{{status == 1 ? 'Ganaste' : 'Perdiste'}}</div>
+  <table class="{{status == 0 ? '' : 'unactive'}}">
+    <tr *ngFor="let row of field; index as ax">
+      <td *ngFor="let col of row; index as ay">
+        <a class="btn-mine" id="btn-mine-{{ax}}{{ay}}" (click)="clickedLeft(ax, ay)" (contextmenu)="clickedRight($event, ax, ay)"></a> 
+      </td>
+    </tr>
+  </table>
+  <div class="col-md-12">
+    <div class="col-md-6">
+      <button class="btn btn-default" (click)="return()">Menu</button>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-info" (click)="reset()">Reiniciar</button>
+    </div>
+  </div>
+  <br>
+</div>
